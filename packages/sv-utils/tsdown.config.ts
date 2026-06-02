@@ -6,6 +6,11 @@ export default defineConfig([
 		sourcemap: false,
 		dts: false,
 		failOnWarn: true,
+		inputOptions: {
+			resolve: {
+				aliasFields: [['browser']]
+			}
+		},
 		deps: {
 			onlyBundle: [
 				'@jridgewell/gen-mapping',
@@ -38,13 +43,7 @@ export default defineConfig([
 		},
 		failOnWarn: true,
 		deps: {
-			neverBundle: [
-				/^svelte/,
-				'@types/estree',
-				'estree',
-				'yaml',
-				'package-manager-detector'
-			],
+			neverBundle: [/^svelte/, '@types/estree', 'estree', 'yaml', 'package-manager-detector'],
 			onlyBundle: ['smol-toml', 'zimmerframe', 'dedent']
 		}
 	}
